@@ -1,0 +1,352 @@
+%%
+%% This is file `template.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% nddiss2e.dtx  (with options: `template')
+%%
+%% This is a generated file.
+%%
+%%  Copyright (C) 2004-2005 Sameer Vijay
+%%
+%%  This file may be distributed and/or modified under the
+%%  conditions of the LaTeX Project Public License, either
+%%  version 1.2 of this license or (at your option) any later
+%%  version. The latest version of this license is in
+%%     http://www.latex-project.org/lppl.txt
+%%
+%%
+%% ==============================================================
+%%
+%% Notre Dame's Dissertation document class by Sameer Vijay
+%% that adheres to the University of Notre Dame guidelines
+%% published in Spring 2004. Updated by Megan Patnott to adhere
+%% to the University of Notre Dame guidelines as of Spring 2013.
+%%
+%% Please send any improvements/suggestions to :
+%%     Shari Hill, Graduate Reviewer.
+%%     shill2@nd.edu
+%%
+%% For documentation on how to use nddiss2e class, process the
+%% file nddiss2e.dtx through LaTeX.
+%%
+%% ==============================================================
+%%
+%\ProvidesFile{template.tex}   [2013/04/16 v3.2013^^J%   Template file for NDdiss2e class by Sameer Vijay and updated by Megan Patnott^^J]
+
+%\documentclass[draft, numrefs, sort&compress ]{nddiss2e}
+%                     % One of the options draft, review, final must be chosen.
+%                     % One of the options textrefs or numrefs should be chosen
+%                     % to specify if you want numerical or ``author-date''
+%                     % style citations.
+%                     % Other available options are:
+%                     % 10pt/11pt/12pt (available with draft only)
+%                     % twoadvisors
+%                     % noinfo (should be used when you compile the final time
+%                     %         for formal submission)
+%                     % sort (sorts multiple citations in the order that they're
+%                     %       listed in the bibliography)
+%                     % compress (compresses numerical citations, e.g. [1,2,3]
+%                     %           becomes [1-3]; has no effect when used with
+%                     %           the textrefs option)
+%                     % sort&compress (sorts and compresses numerical citations;
+%                     %           is identical to sort when used with textrefs)
+
+
+\documentclass[final,numrefs,sort&compress,oneadvisor,noinfo]{nddiss2e}
+% One of the options draft, review, final must be chosen.
+% One of the options textrefs or numrefs should be chosen
+% to specify if you want numerical or ``author-date''
+% style citations.
+% Other available options are:
+% 10pt/11pt/12pt (available with draft only)
+% twoadvisors
+% noinfo (should be used when you compile the final time
+%         for formal submission)
+% sort (sorts multiple citations in the order that they're
+%       listed in the bibliography)
+% compress (compresses numerical citations, e.g. [1,2,3]
+%           becomes [1-3]; has no effect when used with
+%           the textrefs option)
+% sort&compress (sorts and compresses numerical citations;
+%           is identical to sort when used with textrefs)
+
+
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{bbm}
+%\usepackage{cite}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{array}
+%\usepackage{dsfont}
+
+%\usepackage{times}
+%\usepackage{mathptmx}
+%\usepackage{mathptmx}
+%\usepackage{fontspec}
+%\setmainfont{Times New Roman}
+
+
+\graphicspath{figures/}
+\newtheorem{thm}{Theorem}[section]
+
+
+
+
+\begin{document}
+
+\frontmatter         % All the items before Chapter 1 go in ``frontmatter''
+
+\title{DESIGN AND IMPLEMENTATION OF\\ A DISTRIBUTED SPECTRUM ACCESS SYSTEM}
+% TITLE OF WORK. It must be in all caps, and ensuring this is your
+% responsiblity.
+\author{Mingming Cai}           % Author's name
+\work{Thesis }             % ``Dissertation'' or ``Thesis''
+\degaward{Master of Science}         % Degree you're aiming for. Should be one of the following options:
+ % ``Doctor of Philosophy'' (do NOT include ``in Subject'')
+ % ``Master of Science // in // Subject''
+\advisor{J. Nicholas Laneman}          % Advisor's name
+ % \secondadvisor{ } % Second advisor, if used option ``twoadvisors''
+\department{Electrical Engineering}       % Name of the department
+
+\maketitle           % The title page is created now
+
+ % You must use either the \makecopyright option or the \makepublicdomain option.
+ % \copyrightholder{ } % If you're not the copyright holder
+ % \copyrightyear{ }   % If the copyright is not for the current year
+ % \makecopyright      % If not making your work public domain
+                       % uncomment out \makecopyright
+ % \makepublicdomain   % Uncomment this to make your work public domain
+
+ % Including an abstract is optional for a master's thesis, and required for a
+ % doctoral dissertation.
+ % \begin{abstract}
+ % \end{abstract}
+ %                         % Either place the text between begin/end, or
+ % \include{abstract}  % put it in a file to be included
+
+ % Including a dedication is optional.
+ % \renewcommand{\dedicationname}{\mbox{}} % Replace \mbox{} if you want
+                                           % something else. It must be in
+                                           % all caps, and doing so is your
+                                           % responsibility.
+ % \begin{dedication}
+ % \end{dedication}
+ %                       % Use one of the two choices to add dedication text
+ % \include{dedication}
+
+
+% You must either set the copyright information or put your work in the public domain.
+\copyrightholder{Mingming Cai} % See template or documentation for
+\copyrightyear{2014}           % other copyright options.
+\makecopyright
+
+% An abstract is optional for a mster's thesis, and required for a doctoral dissertation.
+\begin{abstract}
+In a dynamic spectrum access system, radios seek robust communications in a communication channel with unknown interfering signals. Cooperative distributed spectrum access radios provide a way to share the spectrum without prior knowledge of other radios' spectrum occupancy. Competitive distributive spectrum access radios provide a solution to deal with malicious radios using the same spectrum. In this thesis, both cooperative and competitive distributed spectrum access radios are designed and implemented.
+
+Strategies for the cooperative and competitive distributed spectrum access system are proposed and analyzed. A packet management system is especially designed to deal with feedback and packet management for the dynamic spectrum access system. This thesis proposed a new spectrum sensing technique based on the statistical characteristics of the mean and standard deviation of interference signal energy across frequency. A TDD system based on the GNU Radio software and the Ettus Universal Software Radio Peripheral USRP N210 hardware is also analyzed and implemented. Experiments demonstrate that all the components can achieve their design goals and the cooperative distributed spectrum access system can cooperate well with radios running the same protocol.
+\end{abstract}
+
+% A dedication is optional.
+%\renewcommand{\dedicationname}{NEW DEDICATION NAME}
+\begin{dedication}
+  To my family,
+
+  my mom, my dad, and my brother.
+\end{dedication}
+
+% These are required, and must be in this order.
+\tableofcontents
+\listoffigures
+\listoftables
+
+
+ % Including a list of symbols is optional.
+ %% \renewcommand{\symbolsname}{newsymname} % Replace ``newsymname'' with
+                                            % the name you want, and uncomment
+                                            % The name must be in all caps,
+                                            % and ensuring this is your
+                                            % responsibility
+ % \begin{symbols}
+ % \end{symbols}
+ %                       % Use one of the two choices to add symbols text
+ % \include{symbols}
+
+ % Including a preface is optional.
+ %% \renewcommand{\prefacename}{ } % If you want another Preface name, add
+                                   % something else, and uncomment.
+                                   % The name must be in all caps, and
+                                   % ensuring this is your responsibility.
+ % \begin{preface}
+ % \end{preface}
+ %                       % Use one of the two choices to add preface text
+ % \include{preface}
+
+ % Including an acknowledgements section may or may not be optional. It's hard to
+ % tell from the information available in Spring 2013.
+ %% \renewcommand{\acknowledgename}{ } % If you want another Acknowledgement name
+                                       % add something else, and uncomment
+                                       % The name must be in all caps, and
+                                       % ensuring this is your responsiblity.
+ % \begin{acknowledge}
+ % \end{acknowledge}
+ %                       % Use one of the two choices to add acknowledge text
+ % \include{acknowledgement}
+
+% A preface is optional.
+%\begin{preface}
+%  I would like to preface this work with all the wonderful things that
+%  Gnus have brought to our society: trees, dirt, flowers, grass,
+%  lakes, and other earthly-things.  We should not forget them in our
+%  daily lives.
+%
+%  Additionally, we should offer them food for all their hard work.  In
+%  fact, Gnus work so hard that they sleep for the colder half of
+%  the year.  As such, they tend to grow a little rotund.  Humans
+%  should not fault them for this, as it is necessary for their
+%  survival.  Indeed, many humans grow rotund on their on accord!
+%\end{preface}
+
+% It's hard to tell from the information available from the Graduate
+% School in Spring 2013 whether or not an acknowledgements section is optional.
+\begin{acknowledge}
+First, I would like to express my sincere gratitude to my adviser and mentor, Dr. J Nicholas Laneman. His support, encouragement, guidance, and patience have been indispensable part of my progress during graduate study. I will always remember the time when he stayed overnight to help me make the algorithms and program work.
+
+I would also like to thank Dr. Bertrand Hochwald. His vision and experience on radio has greatly helped me, and I have also benefited from discussions with him. He gave me many good suggestions not only on the radio design and implementation, but also on my career.
+
+My thanks also go to Ding Nie and Dirk Van Bruggen. They are very smart and we have been working closely to make steady progress in the Spectrum Challenge. I would like to thank Neil Dodson, as well. He substantially helped on the setup of test environment. My thanks also go to Fan Zhang, Chao Luo, Zhanwei Sun, Zhenhua Gong, and Zhen Tong. They have contributed to the early-stage radio design for the Spectrum Challenge. My special thanks go to Zhanwei Sun, who gave me many suggestions on my graduate study. He also introduced me the world of GNU Radio software and USRP hardware.
+
+Nikolaus Kleber has spent significantly amount of time helping me to revise the thesis. Jun Chen, Glenn Bradford, Ebrahim MolavianJazi, Mostafa Khoshnevisan, and Sahand Golnarian also provided me with good advice in my graduate study. I would like to thank them all.
+
+Last, but not least, I would like to express my gratitude to all my friends and my family for their support.
+\end{acknowledge}
+
+% A symbols section is optional.
+%\begin{symbols}
+%  \sym{\mathcal{F}}{sighting frequency of Gnus about campus}
+%  \sym{p}{student population}
+%  \sym{f}{type of food available}
+%  \sym{d}{day of week}
+%  \sym{c}{speed of light}
+%  \sym{m}{mass}
+%  \sym{e}{elementary charge}
+%  \sym{a,b}{miscellaneous constants}
+%  \sym{E}{energy}
+%\end{symbols}
+
+\mainmatter
+% Place the text body here.
+%\include{chapter-one}
+%Begin each chapter with \chapter{TITLE}. Chapter titles must be in all caps
+%and ensuring that they are is your responsibility.
+
+%
+% An unnumbered chapter (features)
+%
+%\unnumchapter{FEATURES OF FORMATTING IN THIS EXAMPLE FILE}
+%% The \unnumchapter command allows you to include an unnumbered chapter as part of
+%% the main text before Chapter 1. It will appear in your table of contents, and you
+%% should have at most one such chapter (although nothing in the class file will
+%% prevent you from creating more).
+%
+%% The usual \cite{} command is also available, and should work as expected.
+%This \verb+chapter+ has been added to the original sample file to highlight the
+%various features with the formatting that conforms to the Graduate school
+%guidelines --- whether obtained due to the use of \nddiss\/ class file or just
+%plain good practice.
+%\begin{itemize}
+%\item An important thing you might notice is that the title of this chapter
+%is not in all CAPS. This is because although \verb+\MakeTextUpperCase{}+
+%(the most sophisticated uppercasing command that Megan is aware of)
+%does know not to uppercase math formulas, these may not be the only symbols
+%that should not be capitalized (Sameer's example was elemental symbols). Also, the
+%combination of \verb+\MakeTextUpperCase+, the \verb+center+ environment, and \verb+\\+
+%makes \LaTeX really mad, for mysterious reasons (any two of the three are okay, but
+%all three together are a problem).
+%\item If you're looking at a pdf document, the pdf bookmarks (left column) link
+%to all major textual sections including abstract, toc, lof, lot and
+%bibliography. Not the dedication, though, because its title might be empty and
+%that was causing issues for some people.
+%\item In the \emph{dedication}, the title name has been modified. So, you know
+%how to and that it can be done.
+%\item The entries in the \emph{List of figures} and \emph{List of Tables} are
+%single-spaced themselves but are double-spaced from the other.
+%\item The table captions are not in all CAPS as well for the reason mentioned
+%above.
+%\item Appropriate space is left between the \verb+Table xx+ and its
+%corresponding caption (which is double-spaced itself) as in table \ref{tbl:bogus1}.
+%\item Tables look much better8 without the vertical lines (good practice).
+%\item There is double-spacing between the table entries but single-spacing
+%within the entry.
+%\item The chapter (see Chapter \ref{chap:golfing}) or section titles are
+%double-spaced as mentioned in the guidelines.
+%\item There is a \verb+subsubsection+ present (eg. section \ref{sec:data}) and
+%is properly formatted in the TOC.
+%\item Sections deeper than \verb+subsubsection+ should not appear in the TOC.
+%\item Table \ref{tbl:defs} is an example of the use of \textsf{landscape}
+%environment in which a normal table is formatted in a \emph{landscape} mode.
+%\item The \textsf{longtable} environment is used in Tables \ref{tbl:votes} and
+%\ref{tbl:rotated-rankings}, in normal and \verb+landscape+ mode, respectively. The
+%table captions are formatted properly in both cases.
+%\item In the table \ref{tbl:votes}, the \verb+footnote+ in the table header
+%does not appear at all. This is not an error of the \nddiss\/ class but of the
+%\textsf{longtable} package.
+%\item An example of citing a website is shown in the bibliography (see
+%\citep{gairley2000}) which is formatted using the \verb+nddiss2e.bst+
+%citation style file.
+%\item A bit of information on the \nddiss\/ class file and the typesetting program
+%used is included in a box on the last page of the thesis.
+%\item Footnotes should space properly.
+%\item Items in \verb+itemize+, \verb+enumerate+, and \verb+description+ environment
+%should automatically single-space within an item, but double space between items.
+%\end{itemize}
+
+
+\include{chapter1}
+
+\include{chapter2}
+
+\include{chapter3}
+
+\include{chapter4}
+
+\include{chapter5}
+
+
+\include{chapter6}
+
+\include{chapter7}
+
+\include{chapter8}
+%
+% Appendix (optional)
+%
+
+%\appendix
+
+%\include{appendix}
+
+ % If you have appendices, add them here.
+ % Begin each one with \chapter{TITLE} as before- the \appendix command takes
+ % care of renaming chapter headings and creates a new page in the Table of
+ % Contents for them.
+ % \include{appendix-one}
+
+\backmatter              % Place for bibliography and index
+
+
+\bibliographystyle{ieeetran}
+\bibliography{Thesis}           % input the bib-database file name
+
+
+\end{document}
+
+%%
+\endinput
+%%
+%% End of file `template.tex'.

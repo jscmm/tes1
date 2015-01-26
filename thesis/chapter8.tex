@@ -1,0 +1,17 @@
+%
+% Chapter 8
+%
+
+\chapter{CONCLUSION}
+\label{chap:conclusion}
+A cooperative distributed spectrum access system provides a way to share the spectrum without prior knowledge of other radios' information, such as modulation, bandwidth, signal amplitude, etc.. The number of wireless devices has been increasing dramatically while the spectrum resource is limited. The cooperative distributive spectrum access system provides another way to share the spectrum. It is also a potential solution to congested communication without prior coordination in severe conditions or extreme situations, such as natural disasters and accidents.
+
+The competitive distributed spectrum access system provides a solution to deal with malicious radios using the same spectrum. It can automatically adjust its modulation and coding schemes according to the interference.
+
+A packet management system is specially designed for the DARPA Spectrum Challenge. In the cooperative game, it can continue to provide packet service even if the reverse link is not reliable. Tests show that the packet management system has low cost while providing good feedback control.
+
+This thesis also proposed a new spectrum sensing technique based on the statistical characteristics of the mean and the standard deviation of the interference signal energy across frequency. The spectrum sensing technique is analyzed and then implemented with GNU Radio and the USRP N210. Tests show that the technique can accurately detect the side lobes of the interference signal regardless of the signal level of the interference's signal.
+
+A TDD system based on GNU Radio and the USRP N210 is also analyzed and implemented. Stream tags and burst control in GNU Radio and USRP are explored. The transition time between the forward and reverse link of the TDD system is within 200 $\mu s$. The implementation provides a good TDD example for the GNU Radio community.
+
+Both the competitive radio and cooperative radio are good examples of the application of communication theory and practice. They could provide materials for a course focusing on radio implementation for congested or interference-limited environments. In this course, students will develop a good understanding of GNU Radio, the USRP, OFDM, spectrum sensing, TDD and related topics.
